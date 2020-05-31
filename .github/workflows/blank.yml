@@ -36,8 +36,12 @@ jobs:
       run: |
         # Login to GitHub Packages and build Docker image
         echo ${GITHUB_TOKEN} | docker login https://docker.pkg.github.com -u ${GITHUB_USER} --password-stdin
-        docker pull ${DOCKER_IMAGE_ORIGIN}:${DOCKER_IMAGE_VERSION}
 
+    - name: Pull docker images
+      id: pull_images
+      run: |
+        docker pull ${DOCKER_IMAGE_ORIGIN}:${DOCKER_IMAGE_VERSION}
+        
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo Hello, world!
