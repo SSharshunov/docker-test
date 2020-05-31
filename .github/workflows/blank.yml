@@ -35,7 +35,7 @@ jobs:
       id: login_reg
       run: |
         # Login to GitHub Packages and build Docker image
-        docker login docker.pkg.github.com -u ${GITHUB_USER} -p ${GITHUB_TOKEN}
+        echo ${GITHUB_TOKEN} | docker login https://docker.pkg.github.com -u ${GITHUB_USER} --password-stdin
         docker pull ${DOCKER_IMAGE_ORIGIN}:${DOCKER_IMAGE_VERSION}
 
     # Runs a single command using the runners shell
