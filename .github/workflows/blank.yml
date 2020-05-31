@@ -40,7 +40,8 @@ jobs:
     - name: Pull docker images
       id: pull_images
       run: |
-        docker pull ${DOCKER_IMAGE_ORIGIN}:${DOCKER_IMAGE_VERSION}
+        docker pull ${DOCKER_IMAGE_ORIGIN_MASTER}:${DOCKER_IMAGE_VERSION}
+        docker pull ${DOCKER_IMAGE_ORIGIN_SLAVE}:${DOCKER_IMAGE_VERSION}
         
     # Runs a single command using the runners shell
     - name: Run a one-line script
